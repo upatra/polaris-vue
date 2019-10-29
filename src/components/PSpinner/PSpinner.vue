@@ -1,5 +1,7 @@
 <template>
-  <img :src="spinnerSVG" :class="className">
+  <p-wrapper>
+    <img :src="spinnerSVG" :class="className">
+  </p-wrapper>
 </template>
 
 <script lang="ts">
@@ -7,12 +9,18 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
 import { spinnerLarge, spinnerSmall } from './images';
 
+import PWrapper from '@/components/PWrapper.vue';
+
 type Color = 'white' | 'teal' | 'inkLightest';
 type Size = 'small' | 'large';
 
 const COLORS_FOR_LARGE_SPINNER = ['teal', 'inkLightest'];
 
-@Component
+@Component({
+  components: {
+    PWrapper,
+  },
+})
 export default class PSpinner extends Vue {
   @Prop({ type: String, default: 'teal' }) public color!: Color;
   @Prop({ type: String, default: 'large' }) public size!: Size;

@@ -1,5 +1,5 @@
 <template>
-  <div style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb;">
+  <p-wrapper>
     <button
       :type="type"
       @click="onClick"
@@ -21,13 +21,14 @@
         </span>
       </span>
     </button>
-  </div>
+  </p-wrapper>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
 
+import PWrapper from '@/components/PWrapper.vue';
 import PSpinner from '@/components/PSpinner/PSpinner.vue';
 
 type Size = 'slim' | 'medium' | 'large';
@@ -36,7 +37,9 @@ type TextAlign = 'left' | 'right' | 'center';
 const DEFAULT_SIZE = 'medium';
 
 @Component({
-  components: { PSpinner },
+  components: {
+    PWrapper, PSpinner
+  },
 })
 export default class PButton extends Vue {
   @Prop(Boolean) public submit!: boolean;
