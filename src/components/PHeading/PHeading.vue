@@ -1,9 +1,7 @@
 <template>
-  <div style="--top-bar-background:#00848e; --top-bar-background-lighter:#1d9ba4; --top-bar-color:#f9fafb;">
-    <component :is="element" :class="className">
-      <slot/>
-    </component>
-  </div>
+  <component :is="element" :class="className">
+    <slot/>
+  </component>
 </template>
 
 <script lang="ts">

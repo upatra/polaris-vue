@@ -1,34 +1,31 @@
 <template>
-  <p-wrapper>
-    <button
-      :type="type"
-      @click="onClick"
-      @focus="onFocus"
-      @blur="onBlur"
-      :class="className"
-      :disabled="isDisabled || loading"
-      :role="loading ? 'alert' : undefined"
-      :aria-busy="loading ? true : undefined">
-      <span class="Polaris-Button__Content">
-        <span v-if="loading" class="Polaris-Button__Spinner">
-          <p-spinner size="small" :color="spinnerColor"></p-spinner>
-          <span role="status">
-            <span class="Polaris-VisuallyHidden">Loading</span>
-          </span>
-        </span>
-        <span class="Polaris-Button__Text">
-          <slot/>
+  <button
+    :type="type"
+    @click="onClick"
+    @focus="onFocus"
+    @blur="onBlur"
+    :class="className"
+    :disabled="isDisabled || loading"
+    :role="loading ? 'alert' : undefined"
+    :aria-busy="loading ? true : undefined">
+    <span class="Polaris-Button__Content">
+      <span v-if="loading" class="Polaris-Button__Spinner">
+        <p-spinner size="small" :color="spinnerColor"></p-spinner>
+        <span role="status">
+          <span class="Polaris-VisuallyHidden">Loading</span>
         </span>
       </span>
-    </button>
-  </p-wrapper>
+      <span class="Polaris-Button__Text">
+        <slot/>
+      </span>
+    </span>
+  </button>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
 
-import PWrapper from '@/components/PWrapper.vue';
 import PSpinner from '@/components/PSpinner/PSpinner.vue';
 
 type Size = 'slim' | 'medium' | 'large';
@@ -37,9 +34,7 @@ type TextAlign = 'left' | 'right' | 'center';
 const DEFAULT_SIZE = 'medium';
 
 @Component({
-  components: {
-    PWrapper, PSpinner
-  },
+  components: { PSpinner },
 })
 export default class PButton extends Vue {
   @Prop(Boolean) public submit!: boolean;
