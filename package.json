@@ -1,7 +1,24 @@
 {
-  "name": "upinus-polaris",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@upatra/polaris-vue",
+  "description": "Shopify's product component library for Vue.js",
+  "private": false,
+  "author": "Upatra <admin@upatra.com>",
+  "repository": "https://github.com/upinus/polaris-vue",
+  "bugs": {
+    "url": "https://github.com/upinus/polaris-vue/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "shopify",
+    "polaris",
+    "vue",
+    "components",
+    "component library"
+  ],
+  "license": "MIT",
+  "version": "0.1.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
