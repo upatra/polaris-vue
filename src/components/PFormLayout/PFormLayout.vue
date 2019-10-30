@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="tsx">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import PFormLayoutItem from '@/components/PFormLayout/PFormLayoutItem.vue';
 
@@ -7,8 +7,13 @@ import PFormLayoutItem from '@/components/PFormLayout/PFormLayoutItem.vue';
 })
 export default class PFormLayout extends Vue {
   public render(h: any) {
-    const items = (this.$slots.default || []).map((item: any) => h(PFormLayoutItem, { class: { } }, [item]));
-    return h('div', { class: { 'Polaris-FormLayout': true } }, items);
+    return (
+      <div class='Polaris-FormLayout'>
+        {(this.$slots.default || []).map((item: any) => (
+          <PFormLayoutItem>{item}</PFormLayoutItem>
+        ))}
+      </div>
+    );
   }
 }
 </script>
