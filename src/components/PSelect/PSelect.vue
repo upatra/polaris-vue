@@ -96,6 +96,7 @@ export default class PSelect extends Vue {
 
   public set computedValue(value: string) {
     this.selected = value;
+    this.$emit('input', value);
   }
 
   public get selectedOption() {
@@ -107,6 +108,11 @@ export default class PSelect extends Vue {
       'Polaris-Select',
       this.disabled && 'Polaris-Select--disabled',
     );
+  }
+
+  @Watch('value')
+  public onValueChanged(value: any) {
+    this.selected = value;
   }
 }
 </script>
