@@ -25,9 +25,12 @@ export default class PStack extends Vue {
   public render(h: any) {
     return (
       <div class={this.className}>
-        {(this.$slots.default || []).map((item: any) => (
-          <PStackItem>{item}</PStackItem>
-        ))}
+        {(this.$slots.default || []).map((item: any) => {
+          if (item.tag.includes(PStackItem.name)) {
+            return item;
+          }
+          return <PStackItem>{item}</PStackItem>;
+        })}
       </div>
     );
   }
