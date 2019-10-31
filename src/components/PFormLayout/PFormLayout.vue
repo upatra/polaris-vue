@@ -2,9 +2,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import PFormLayoutItem from '@/components/PFormLayout/PFormLayoutItem.vue';
 
-@Component({
-  components: { PFormLayoutItem },
-})
+@Component
 export default class PFormLayout extends Vue {
   public render(h: any) {
     return (
