@@ -18,14 +18,14 @@
     "component library"
   ],
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-bundle": "vue-cli-service build --target lib --name polaris ./src/components/index.js"
+    "build-bundle": "vue-cli-service build --target lib --name polaris-vue ./src/components/index.js"
   },
-  "main": "./dist/polaris.common.js",
+  "main": "./dist/polaris-vue.common.js",
   "dependencies": {
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "@vue/babel-preset-jsx": "^1.1.1",
