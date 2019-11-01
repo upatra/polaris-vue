@@ -8,7 +8,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
 
-import PHeading from '@/components/PHeading/PHeading.vue';
+import { PHeading } from '@/components/PHeading';
 
 @Component({
   components: { PHeading },

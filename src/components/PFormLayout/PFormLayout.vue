@@ -1,6 +1,7 @@
 <script lang="tsx">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import PFormLayoutItem from '@/components/PFormLayout/PFormLayoutItem.vue';
+
+import PFormLayoutItem from './PFormLayoutItem.vue';
 
 @Component
 export default class PFormLayout extends Vue {

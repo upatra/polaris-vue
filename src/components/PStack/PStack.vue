@@ -2,7 +2,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
 
-import PStackItem from '@/components/PStack/PStackItem.vue';
+import PStackItem from './PStackItem.vue';
 
 type Spacing = 'extraTight' | 'tight' | 'loose' | 'extraLoose' | 'none';
 type Alignment = 'leading' | 'trailing' | 'center' | 'fill' | 'baseline';

@@ -26,7 +26,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
 
-import PSpinner from '@/components/PSpinner/PSpinner.vue';
+import { PSpinner } from '@/components/PSpinner';
 
 type Size = 'slim' | 'medium' | 'large';
 type TextAlign = 'left' | 'right' | 'center';

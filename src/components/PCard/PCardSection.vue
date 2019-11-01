@@ -11,7 +11,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames } from '@/utilities/css';
 
-import PSubheading from '@/components/PSubheading/PSubheading.vue';
+import { PSubheading } from '@/components/PSubheading';
 
 @Component({
   components: { PSubheading },
