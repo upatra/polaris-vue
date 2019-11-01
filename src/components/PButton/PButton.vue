@@ -1,9 +1,9 @@
 <template>
   <button
     :type="type"
-    @click="onClick"
-    @focus="onFocus"
-    @blur="onBlur"
+    @click="$emit('click', $event)"
+    @focus="$emit('focus', $event)"
+    @blur="$emit('blur', $event)"
     :class="className"
     :disabled="isDisabled || loading"
     :role="loading ? 'alert' : undefined"
@@ -48,9 +48,6 @@ export default class PButton extends Vue {
   @Prop(Boolean) public fullWidth!: boolean;
   @Prop(String) public size!: Size;
   @Prop(String) public textAlign!: TextAlign;
-  @Prop({ type: Function, default: () => undefined }) public onClick!: () => void;
-  @Prop({ type: Function, default: () => undefined }) public onFocus!: () => void;
-  @Prop({ type: Function, default: () => undefined }) public onBlur!: () => void;
 
   public type: string = '';
 
