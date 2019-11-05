@@ -2,6 +2,10 @@
 
 Polaris Vue by Upatra is a component library for [Vue.js](https://vuejs.org/) based on [Shopify Polaris style guide](https://polaris.shopify.com/).
 
+## Documentation
+
+You could browse [online documentation here](https://upatra-polaris-vue.netlify.com/).
+
 ## Quick start
 
 You need [Vue.js](https://vuejs.org/) **version 2+**.
