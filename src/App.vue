@@ -1,32 +1,28 @@
 <template>
   <div id="app">
-    <h1>Test</h1>
-    <br>
-    <p-button plain destructive>
-      Add product
-    </p-button>
-    <br>
-    <p-button destructive loading>
-      Add product
-    </p-button>
+    <FormExample/>
+    <StructureExample/>
+    <ActionsExample/>
+    <TitlesAndTextExample/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import PButton from '@/components/PButton/PButton.vue';
+
+import {
+  ActionsExample, StructureExample, FormExample, TitlesAndTextExample,
+} from '@/examples';
 
 @Component({
   components: {
-    PButton,
+    StructureExample,
+    ActionsExample,
+    FormExample,
+    TitlesAndTextExample,
   },
 })
-export default class App extends Vue {
-  public test() {
-    /* tslint:disable-next-line */
-    console.log('asd');
-  }
-}
+export default class App extends Vue {}
 </script>
 
 <style lang="scss">
@@ -34,8 +30,8 @@ export default class App extends Vue {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding: 80px;
 }
 </style>
