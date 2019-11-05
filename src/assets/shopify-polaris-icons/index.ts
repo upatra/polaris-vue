@@ -1,1 +1,1 @@
-export { default as ArrowUpDownMinor } from './images/select_minor.svg';
+export { default as ArrowUpDownMinor } from './images/select_minor';

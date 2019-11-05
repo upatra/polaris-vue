@@ -1,10 +1,11 @@
 <template>
-  <img :src="spinnerSVG" :class="className">
+  <img :src="`data:image/svg+xml;utf8,${spinnerSVG}`" :class="className">
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
+import { encode as encodeSVG, encode } from '@/utilities/svg';
 import { spinnerLarge, spinnerSmall } from './images';
 
 type Color = 'white' | 'teal' | 'inkLightest';
@@ -28,7 +29,8 @@ export default class PSpinner extends Vue {
   }
 
   public get spinnerSVG() {
-    return this.size === 'large' ? spinnerLarge : spinnerSmall;
+    const svg: string = this.size === 'large' ? spinnerLarge : spinnerSmall;
+    return encodeSVG(svg);
   }
 }
 </script>

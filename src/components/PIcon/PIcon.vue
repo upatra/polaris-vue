@@ -3,7 +3,7 @@
     <div v-if="source === 'placeholder'" class="Polaris-Icon--Placeholder"/>
     <img
       class="Polaris-Icon--Img"
-      :src="source"
+      :src="`data:image/svg+xml;utf8,${encodedSource}`"
       alt=""
       aria-hidden="true"
     />
@@ -13,6 +13,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
+import { encode as encodeSVG } from '@/utilities/svg';
 
 type Color =
   | 'white'
@@ -67,6 +68,8 @@ export default class PIcon extends Vue {
   @Prop(String) public source!: 'placeholder' | string;
   @Prop(String) public color!: Color;
   @Prop(Boolean) public backdrop!: boolean;
+
+  public encodedSource = encodeSVG(this.source);
 
   public get className() {
     return classNames(
