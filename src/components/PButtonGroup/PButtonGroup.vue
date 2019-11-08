@@ -14,13 +14,11 @@ export default class PButtonGroup extends Vue {
     return (
       <div class={this.className}>
         {(this.$slots.default || []).map((item: any) => {
-          if (item.tag.includes(PButton.name)) {
-            return (
-              <div class='Polaris-ButtonGroup__Item'>
-                {item}
-              </div>
-            );
-          }
+          return (
+            <div class='Polaris-ButtonGroup__Item'>
+              {item}
+            </div>
+          );
         })}
       </div>
     );
