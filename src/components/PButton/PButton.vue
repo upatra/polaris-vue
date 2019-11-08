@@ -18,7 +18,7 @@
       <span v-if="icon" class="Polaris-Button__Icon">
         <PIcon :source="loading ? 'placeholder' : icon"/>
       </span>
-      <span class="Polaris-Button__Text">
+      <span v-if="!hasNoChildren" class="Polaris-Button__Text">
         <slot/>
       </span>
     </span>
