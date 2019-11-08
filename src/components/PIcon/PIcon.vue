@@ -1,12 +1,14 @@
 <template>
   <span :class="className">
     <div v-if="source === 'placeholder'" class="Polaris-Icon--Placeholder"/>
-    <img
+    <!-- <img
+      v-else
       class="Polaris-Icon--Img"
       :src="`data:image/svg+xml;utf8,${encodedSource}`"
       alt=""
       aria-hidden="true"
-    />
+    /> -->
+    <div v-else v-html="enhancedSource"></div>
   </span>
 </template>
 
@@ -70,6 +72,7 @@ export default class PIcon extends Vue {
   @Prop(Boolean) public backdrop!: boolean;
 
   public encodedSource = encodeSVG(this.source);
+  public enhancedSource = this.source.replace('<svg', '<svg class="Polaris-Icon__Svg"');
 
   public get className() {
     return classNames(
