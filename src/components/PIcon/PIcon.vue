@@ -71,9 +71,6 @@ export default class PIcon extends Vue {
   @Prop(String) public color!: Color;
   @Prop(Boolean) public backdrop!: boolean;
 
-  public encodedSource = encodeSVG(this.source);
-  public enhancedSource = this.source.replace('<svg', '<svg class="Polaris-Icon__Svg"');
-
   public get className() {
     return classNames(
       'Polaris-Icon',
@@ -81,6 +78,14 @@ export default class PIcon extends Vue {
       this.color && this.color !== 'white' && 'Polaris-Icon--isColored',
       this.backdrop && 'Polaris-Icon--hasBackdrop',
     );
+  }
+
+  public get encodedSource() {
+    return encodeSVG(this.source);
+  }
+
+  public get enhancedSource() {
+    return this.source.replace('<svg', '<svg class="Polaris-Icon__Svg"');
   }
 }
 </script>
