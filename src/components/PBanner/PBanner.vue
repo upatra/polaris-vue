@@ -19,6 +19,13 @@
       </div>
       <div class="Polaris-Banner__Content">
         <slot/>
+        <div v-if="action" class="Polaris-Banner__Actions">
+          <PButtonGroup>
+            <div class="Polaris-Banner__PrimaryAction">
+              <PButtonsFrom :actions="action" :overrides="{ outline: true }"/>
+            </div>
+          </PButtonGroup>
+        </div>
       </div>
     </div>
   </div>
@@ -31,6 +38,8 @@ import { classNames, variationName } from '@/utilities/css';
 import { PIcon } from '@/components/PIcon';
 import { PButton } from '@/components/PButton';
 import { PHeading } from '@/components/PHeading';
+import { PButtonGroup } from '@/components/PButtonGroup';
+import { PButtonsFrom } from '@/components/PButton/utils';
 import {
   CancelSmallMinor,
   CircleTickMajorTwotone,
@@ -39,6 +48,10 @@ import {
   CircleDisabledMajorTwotone,
   CircleInformationMajorTwotone,
 } from '@/assets/shopify-polaris-icons';
+import {
+  DisableableAction,
+  LoadableAction,
+} from '@/types';
 
 
 type BannerStatus = 'success' | 'info' | 'warning' | 'critical';
@@ -46,6 +59,7 @@ type BannerStatus = 'success' | 'info' | 'warning' | 'critical';
 @Component({
   components: {
     PIcon, PButton, PHeading,
+    PButtonGroup, PButtonsFrom,
   },
   mixins: [
     {
@@ -65,7 +79,8 @@ type BannerStatus = 'success' | 'info' | 'warning' | 'critical';
 export default class PBanner extends Vue {
   @Prop(String) public title!: string;
   @Prop(String) public status!: string;
-  @Prop(Function) public onDismiss!: void;
+  @Prop(Function) public onDismiss!: () => void;
+  @Prop(Object) public action!: DisableableAction & LoadableAction;
 
   public get className() {
     return classNames(
