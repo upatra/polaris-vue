@@ -4,6 +4,7 @@
     <StructureExample/>
     <ActionsExample/>
     <TitlesAndTextExample/>
+    <FeedbackIndicatorsExample/>
   </div>
 </template>
 
@@ -11,7 +12,11 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 import {
-  ActionsExample, StructureExample, FormExample, TitlesAndTextExample,
+  ActionsExample,
+  StructureExample,
+  FormExample,
+  TitlesAndTextExample,
+  FeedbackIndicatorsExample,
 } from '@/examples';
 
 @Component({
@@ -20,6 +25,7 @@ import {
     ActionsExample,
     FormExample,
     TitlesAndTextExample,
+    FeedbackIndicatorsExample,
   },
 })
 export default class App extends Vue {}
