@@ -5,6 +5,7 @@
     <ActionsExample/>
     <TitlesAndTextExample/>
     <FeedbackIndicatorsExample/>
+    <ListsAndTablesExample/>
   </div>
 </template>
 
@@ -17,6 +18,7 @@ import {
   FormExample,
   TitlesAndTextExample,
   FeedbackIndicatorsExample,
+  ListsAndTablesExample,
 } from '@/examples';
 
 @Component({
@@ -26,6 +28,7 @@ import {
     FormExample,
     TitlesAndTextExample,
     FeedbackIndicatorsExample,
+    ListsAndTablesExample,
   },
 })
 export default class App extends Vue {}
