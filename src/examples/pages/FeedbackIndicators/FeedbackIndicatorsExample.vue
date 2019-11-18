@@ -1,7 +1,7 @@
 <template>
   <ExampleContainer title="Feedback Indicators">
     <ExampleContent :code="bannerExample1">
-      <PBanner title="Order archived" :onDismiss="() => undefined">
+      <PBanner title="Order archived" @dismiss="onDismiss()">
         <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>
       </PBanner>
     </ExampleContent>
@@ -11,7 +11,7 @@
         title="Some of your product variants are missing weights"
         status="warning"
         :action="{content: 'Edit variant weights'}"
-        :onDismiss="() => undefined">
+        @dismiss="onDismiss()">
         <p>
           Add weights to show accurate rates at checkout and when buying shipping
           labels in Shopify.
@@ -24,7 +24,7 @@
         title="Your shipping label is ready to print."
         status="success"
         :action="{content: 'Print label'}"
-        :onDismiss="() => undefined"/>
+        @dismiss="onDismiss()"/>
     </ExampleContent>
 
     <ExampleContent :code="spinnerExample1">
@@ -68,7 +68,7 @@ import { PSkeletonThumbnail } from '@/components/PSkeletonThumbnail';
 })
 export default class FeedbackIndicatorsExample extends Vue {
   public bannerExample1 = `
-  <PBanner title="Order archived" :onDismiss="() => undefined">
+  <PBanner title="Order archived" @dismiss="onDismiss()">
     <p>This order was archived on March 7, 2017 at 3:12pm EDT.</p>
   </PBanner>
   `;
@@ -78,7 +78,7 @@ export default class FeedbackIndicatorsExample extends Vue {
     title="Some of your product variants are missing weights"
     status="warning"
     :action="{content: 'Edit variant weights'}"
-    :onDismiss="() => undefined">
+    @dismiss="onDismiss()">
     <p>
       Add weights to show accurate rates at checkout and when buying shipping
       labels in Shopify.
@@ -91,7 +91,7 @@ export default class FeedbackIndicatorsExample extends Vue {
     title="Your shipping label is ready to print."
     status="success"
     :action="{content: 'Print label'}"
-    :onDismiss="() => undefined"/>
+    @dismiss="onDismiss()"/>
   `;
 
   public spinnerExample1 = `
@@ -110,6 +110,10 @@ export default class FeedbackIndicatorsExample extends Vue {
   public skeletonExample3 = `
   <PSkeletonThumbnail/>
   `;
+
+  public onDismiss() {
+    alert('banner dismissed test');
+  }
 }
 </script>
 

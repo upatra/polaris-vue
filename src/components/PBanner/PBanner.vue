@@ -4,7 +4,7 @@
       <PButton
         plain
         :icon="CancelSmallMinor"
-        @click="onDismiss">
+        @click="$emit('dismiss', $event)">
       </PButton>
     </div>
     <div class="Polaris-Banner__Ribbon">
@@ -79,7 +79,6 @@ type BannerStatus = 'success' | 'info' | 'warning' | 'critical';
 export default class PBanner extends Vue {
   @Prop(String) public title!: string;
   @Prop(String) public status!: string;
-  @Prop(Function) public onDismiss!: () => void;
   @Prop(Object) public action!: DisableableAction & LoadableAction;
 
   public get className() {
@@ -92,7 +91,7 @@ export default class PBanner extends Vue {
   }
 
   public get isDismissable() {
-    return this.onDismiss !== null && this.onDismiss !== undefined;
+    return this.$listeners && this.$listeners.dismiss;
   }
 
   public get colorAndIcon() {
