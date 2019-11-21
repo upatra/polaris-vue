@@ -6,11 +6,13 @@
     :disabled="disabled">
     <span :class="wrapperClassName">
       <input
+        v-model="computedValue"
         :id="id"
         type="checkbox"
         :checked="isChecked"
         :disabled="disabled"
         :class="inputClassName"
+        :value="nativeValue"
         role="checkbox"/>
       <span class="Polaris-Checkbox__Backdrop"></span>
       <span class="Polaris-Checkbox__Icon">
@@ -21,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { classNames, variationName } from '@/utilities/css';
 
 import { PIcon } from '@/components/PIcon';
@@ -36,9 +38,11 @@ import { MinusMinor, TickSmallMinor } from '@/assets/shopify-polaris-icons';
 export default class PCheckbox extends Vue {
   @Prop(String) public label!: string;
   @Prop(Boolean) public labelHidden!: boolean;
-  @Prop() public checked!: boolean | 'indeterminate';
+  @Prop(Boolean) public indeterminate!: boolean;
+  @Prop() public nativeValue!: any;
   @Prop(Boolean) public disabled!: boolean;
 
+  public checked = this.nativeValue;
   public id = `PolarisCheckbox${new Date().getUTCMilliseconds()}`;
 
   public get wrapperClassName() {
@@ -50,20 +54,30 @@ export default class PCheckbox extends Vue {
   public get inputClassName() {
     return classNames(
       'Polaris-Checkbox__Input',
-      this.isIndeterminate && 'Polaris-Checkbox__Input--indeterminate',
+      this.indeterminate && 'Polaris-Checkbox__Input--indeterminate',
     );
   }
 
-  public get isIndeterminate() {
-    return this.checked === 'indeterminate';
-  }
-
   public get isChecked() {
-    return !this.isIndeterminate && Boolean(this.checked);
+    return !this.indeterminate && Boolean(this.checked);
   }
 
   public get iconSource() {
-    return this.isIndeterminate ? MinusMinor : TickSmallMinor;
+    return this.indeterminate ? MinusMinor : TickSmallMinor;
+  }
+
+  public get computedValue() {
+    return this.checked;
+  }
+
+  public set computedValue(value: string) {
+    this.checked = value;
+    this.$emit('input', value);
+  }
+
+  @Watch('value')
+  public onValueChanged(value: any) {
+    this.checked = value;
   }
 }
 </script>
