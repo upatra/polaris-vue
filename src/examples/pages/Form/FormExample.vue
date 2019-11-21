@@ -9,6 +9,8 @@
           :options="[{label: 'Today', value: 'today'},{label: 'Yesterday', value: 'yesterday'},{label: 'Last 7 days', value: 'lastWeek'}]"
           v-model="selectedValue1"
         />
+        <PCheckbox label="Checkbox 1" indeterminate/>
+        <PCheckbox v-model="checkboxValue" label="Checkbox 2"/>
       </PFormLayout>
     </ExampleContent>
   </ExampleContainer>
@@ -20,17 +22,19 @@ import { Component, Vue } from 'vue-property-decorator';
 import { ExampleContainer, ExampleContent } from '@/examples/components';
 import { PSelect } from '@/components/PSelect';
 import { PTextField } from '@/components/PTextField';
+import { PCheckbox } from '@/components/PCheckbox';
 import { PFormLayout, PFormLayoutItem } from '@/components/PFormLayout';
 
 @Component({
   components: {
     ExampleContainer, ExampleContent,
     PFormLayout, PFormLayoutItem,
-    PSelect, PTextField,
+    PSelect, PTextField, PCheckbox,
   },
 })
 export default class FormExample extends Vue {
   public selectedValue1 = 'today';
+  public checkboxValue = true;
 
   public example1 = `
   <PFormLayout>
@@ -41,6 +45,8 @@ export default class FormExample extends Vue {
       :options="[{label: 'Today', value: 'today'},{label: 'Yesterday', value: 'yesterday'},{label: 'Last 7 days', value: 'lastWeek'}]"
       v-model="selectedValue1"
     />
+    <PCheckbox label="Checkbox 1" indeterminate/>
+    <PCheckbox v-model="cbVal" label="Checkbox 2"/>
   </PFormLayout>
   `;
 }
