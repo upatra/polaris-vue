@@ -3,9 +3,9 @@
   "description": "Shopify's product component library for Vue.js",
   "private": false,
   "author": "Upatra <admin@upatra.com>",
-  "repository": "https://github.com/upinus/polaris-vue",
+  "repository": "https://github.com/upatra/polaris-vue",
   "bugs": {
-    "url": "https://github.com/upinus/polaris-vue/issues"
+    "url": "https://github.com/upatra/polaris-vue/issues"
   },
   "publishConfig": {
     "access": "public"
