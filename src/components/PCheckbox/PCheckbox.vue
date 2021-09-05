@@ -37,12 +37,13 @@ import { MinusMinor, TickSmallMinor } from '@/assets/shopify-polaris-icons';
 })
 export default class PCheckbox extends Vue {
   @Prop(String) public label!: string;
+  @Prop() public value!: any;
   @Prop(Boolean) public labelHidden!: boolean;
   @Prop(Boolean) public indeterminate!: boolean;
   @Prop() public nativeValue!: any;
   @Prop(Boolean) public disabled!: boolean;
 
-  public checked = this.nativeValue;
+  public checked = this.value;
   public id = `PolarisCheckbox${new Date().getUTCMilliseconds()}`;
 
   public get wrapperClassName() {
