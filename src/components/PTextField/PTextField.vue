@@ -11,6 +11,7 @@
       <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
         <div :class="className">
           <input
+            v-if="!multiline"
             :id="id"
             :type="inputType"
             class="Polaris-TextField__Input"
@@ -18,7 +19,21 @@
             :disabled="disabled"
             :readonly="readOnly"
             :placeholder="placeholder"
+            @input="onInput" />
+
+          <textarea
+            v-else
+            :id="id"
+            :type="inputType"
+            class="Polaris-TextField__Input"
+            :value="computedValue"
+            :disabled="disabled"
+            :readonly="readOnly"
+            :placeholder="placeholder"
+            :style="style"
             @input="onInput">
+          </textarea>
+
           <div class="Polaris-TextField__Backdrop"></div>
         </div>
       </div>
@@ -53,6 +68,7 @@ export default class PTextField extends Vue {
   @Prop(String) public placeholder!: string;
   @Prop(Boolean) public disabled!: boolean;
   @Prop(Boolean) public readOnly!: boolean;
+  @Prop() public multiline!: boolean | number;
 
   public id = `PolarisTextField${new Date().getUTCMilliseconds()}`;
   public selected = this.value !== null ? this.value : '';
@@ -67,7 +83,14 @@ export default class PTextField extends Vue {
       Boolean(this.computedValue) && 'Polaris-TextField--hasValue',
       this.disabled && 'Polaris-TextField--disabled',
       this.readOnly && 'Polaris-TextField--readOnly',
+      this.multiline && 'Polaris-TextField--multiline',
     );
+  }
+
+  public get style() {
+    const height = this.multiline && typeof this.multiline === 'number' ? 26.5 * 4 : 0;
+
+    return height ? `height: ${height}px` : '';
   }
 
   public get computedValue() {
