@@ -5,6 +5,7 @@ import { PButton } from './PButton';
 import { PButtonGroup } from './PButtonGroup';
 import { PCard, PCardHeader, PCardSection, PCardSubsection } from './PCard';
 import { PCheckbox } from './PCheckbox';
+import { PColorPicker } from './PColorPicker';
 import { PDataTable } from './PDataTable';
 import { PDisplayText } from './PDisplayText';
 import { PFormLayout, PFormLayoutItem } from './PFormLayout';
@@ -31,6 +32,7 @@ const Components = {
   PButtonGroup,
   PCard, PCardHeader, PCardSection, PCardSubsection,
   PCheckbox,
+  PColorPicker,
   PDataTable,
   PDisplayText,
   PFormLayout, PFormLayoutItem,
